@@ -7,13 +7,13 @@ registries:
     password: ${{ secrets.DOCKER_REGISTRY_TOKEN }}
 updates:
   - package-ecosystem: github-actions
+    open-pull-requests-limit: 0
     directory: "/"
     groups:
       all:
         patterns: ["*"]
     schedule:
       interval: weekly
-    open-pull-requests-limit: 100
     rebase-strategy: auto
     reviewers:
       - rennokki
@@ -23,6 +23,8 @@ updates:
       - dependencies
 
   - package-ecosystem: npm
+
+    open-pull-requests-limit: 0
     directory: "/"
     groups:
       typescript:
@@ -65,7 +67,6 @@ updates:
           - "pusher*"
     schedule:
       interval: weekly
-    open-pull-requests-limit: 100
     rebase-strategy: auto
     reviewers:
       - rennokki
@@ -76,12 +77,13 @@ updates:
     versioning-strategy: auto
 
   - package-ecosystem: docker
+
+    open-pull-requests-limit: 0
     directory: "/"
     registries:
       - quay
     schedule:
       interval: weekly
-    open-pull-requests-limit: 100
     rebase-strategy: auto
     reviewers:
       - rennokki
